@@ -1,7 +1,7 @@
 import React from 'react';
-import { Card } from './Card.css';
+import './Card.css';
 
-const Card = () => {
+const Card = ({trick}) => {
 
   return (
     <div className='card-container'>

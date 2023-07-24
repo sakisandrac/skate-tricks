@@ -20,6 +20,13 @@ describe('homepage', () => {
     .get('.cards-container > :nth-child(2) > :nth-child(1)').should('have.text', 'Regular Heelflip')
     .get('.cards-container > :nth-child(3) > :nth-child(1)').should('have.text', 'Switch Frontside 50-50, backside 180 out')
   })
+
+  it('should be able to fill out form', () => {
+    cy.get('form').get('select').first().select('regular').should('have.value', 'regular')
+    .get('[name="name"]').type('new trick name').should('have.value', 'new trick name')
+    .get('[name="obstacle"]').select('pool').should('have.value', 'pool')
+    .get('[name="link"]').type('www.youtube.com/example').should('have.value', 'www.youtube.com/example')
+  })
   
   it('should be able to use form to add new trick', () => {
     cy.get('form').get('select').first().select('regular')
@@ -31,5 +38,7 @@ describe('homepage', () => {
     .next('p').should('have.text', 'Obstacle: Pool')
     .next('p').should('have.text', 'Link to Tutorial: www.youtube.com/example')
   })
+
+
 
   })

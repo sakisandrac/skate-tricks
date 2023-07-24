@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import './Form.css'
 
 const Form = ({ addTrick }) => {
 
@@ -25,13 +26,6 @@ const Form = ({ addTrick }) => {
       setLink(value)
     }
   }
-
-  // useEffect(() => {
-  //   console.log(stance)
-  //   console.log(name)
-  //   console.log(link)
-  //   console.log(obstacle)
-  // },[name, stance, obstacle, link])
   
   const submitTrick =(e) => {
     e.preventDefault();

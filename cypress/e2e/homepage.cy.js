@@ -29,16 +29,21 @@ describe('homepage', () => {
   })
   
   it('should be able to use form to add new trick', () => {
+    cy.intercept('POST', 'http://localhost:3001/api/v1/tricks', {
+      statusCode: 201,
+      body: {stance: 'regular', name: 'new trick name', obstacle: 'pool', tutorial: 'www.youtube.com/example', id: 4}
+    })
+      cy.intercept('GET', 'http://localhost:3001/api/v1/tricks', {
+      statusCode: 200,
+      fixture: 'tricks-post'
+    })
     cy.get('form').get('select').first().select('regular')
     .get('[name="name"]').type('new trick name')
     .get('[name="obstacle"]').select('pool')
     .get('[name="link"]').type('www.youtube.com/example')
     .get('button').click()
-    .get('.card-container').first().get('p').first().should('have.text', 'Regular New trick name')
+    .get(':nth-child(4) > :nth-child(1)').should('have.text', 'Regular New trick name')
     .next('p').should('have.text', 'Obstacle: Pool')
     .next('p').should('have.text', 'Link to Tutorial: www.youtube.com/example')
   })
-
-
-
   })

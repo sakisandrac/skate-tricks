@@ -1,32 +1,38 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import { getTricks } from '../../apiCalls';
+import { getTricks, postTrick } from '../../apiCalls';
 import Card from '../Card/Card';
 import Form from '../Form/Form';
-
 
 function App() {
   
   const [tricks, setTricks ] = useState([]);
+  const [trickSubmitted, setTrickSubmitted] = useState(false)
 
   useEffect(() => {
     getTricks().then(data => {
       console.log(data)
       setTricks(data)
     })
-  }, [])
+  }, [trickSubmitted])
 
   const renderTrickCards = () => {
     return tricks.map(trick => <Card key={trick.id} trick={trick}/>)
   }
 
   const addTrick = (newTrick) => {
-    setTricks(prev=> [newTrick, ...prev])
+    const trick = {stance: newTrick.stance, name: newTrick.name, obstacle: newTrick.obstacle, tutorial: newTrick.tutorial}
+    postTrick(trick).then(data => {
+      console.log(data)
+      setTrickSubmitted(prev => !prev)
+    })
+    
   }
 
   useEffect(() => {
     console.log(tricks)
-  }, [tricks])
+    console.log(tricks)
+  }, [tricks, trickSubmitted])
 
   return (
     <div className="App">

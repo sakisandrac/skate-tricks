@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "treflip",
+    "obstacle": "flat ground",
+    "stance": "regular",
+    "tutorial": "https://www.youtube.com/watch?v=XGw3YkQmNig"
+  },
+  {
+    "id": 2,
+    "name": "heelflip",
+    "obstacle": "ledge",
+    "stance": "regular",
+    "tutorial": "https://www.youtube.com/watch?v=9N9swrZU1HA"
+  },
+  {
+    "id": 3,
+    "name": "frontside 50-50, backside 180 out",
+    "obstacle": "stairs",
+    "stance":"switch",
+    "tutorial": "https://www.youtube.com/watch?v=9N9swrZU1HA"
+  },
+  {
+    "id": 4,
+    "stance": "regular",
+    "name": "new trick name",
+    "obstacle": "pool",
+    "tutorial": "www.youtube.com/example"
+  }
+]

@@ -23,6 +23,9 @@ function App() {
   return (
     <div className="App">
       <h1>Sick Trick Wish List</h1>
+      <div className='cards-container'>
+        {renderTrickCards()}
+      </div>
     </div>
   );
 }

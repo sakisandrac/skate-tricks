@@ -4,12 +4,10 @@ import { getTricks, postTrick } from '../../apiCalls';
 import Card from '../Card/Card';
 import Form from '../Form/Form';
 
-
 function App() {
   
   const [tricks, setTricks ] = useState([]);
   const [trickSubmitted, setTrickSubmitted] = useState(false)
-  // const [newTrick, setNewTrick] = useState({})
 
   useEffect(() => {
     getTricks().then(data => {
@@ -23,8 +21,6 @@ function App() {
   }
 
   const addTrick = (newTrick) => {
-    // setTricks(prev=> [newTrick, ...prev])
-    
     const trick = {stance: newTrick.stance, name: newTrick.name, obstacle: newTrick.obstacle, tutorial: newTrick.tutorial}
     postTrick(trick).then(data => {
       console.log(data)
